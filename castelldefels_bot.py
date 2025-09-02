@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 # Constantes de configuración
 TELEGRAM_TOKEN = '7971079701:AAF-B-tD1nYQs5IuhuoBJTUKwBBBY7mXvgU'
 CHAT_ID = '914909'
-CHECK_INTERVAL = 5  # segundos
+CHECK_INTERVAL = 10  # segundos
 
 # URLs
 URL_CASTELLDEFELS = 'https://www.castelldefels.org/ca/actualitat/elcastell/noticies'
@@ -90,6 +90,8 @@ def obtener_ultima_noticia_premsa_gava():
         if noticia and noticia.a:
             titulo = noticia.get_text(strip=True)
             enlace = noticia.a['href']
+            if not enlace.startswith("http"):
+                enlace = "https://www.lapremsadelbaix.es" + enlace
             return titulo, enlace
         return None
     except Exception as e:
@@ -106,6 +108,8 @@ def obtener_ultima_noticia_premsa_castelldefels():
         if noticia and noticia.a:
             titulo = noticia.get_text(strip=True)
             enlace = noticia.a['href']
+            if not enlace.startswith("http"):
+                enlace = "https://www.lapremsadelbaix.es" + enlace
             return titulo, enlace
         return None
     except Exception as e:
@@ -154,7 +158,8 @@ def enviar_telegram(mensaje):
     payload = {
         'chat_id': CHAT_ID,
         'text': mensaje,
-        'parse_mode': 'HTML'
+        'parse_mode': 'HTML',
+        'disable_web_page_preview': True  # 👈 evita carátula/imagen previa
     }
     try:
         requests.post(url, data=payload)
@@ -220,7 +225,6 @@ def main():
             enviar_telegram(f"🆕 Nova notícia de El Periódico (Castelldefels):\n\n<b>{titulo}</b>\n\n👉 <a href='{enlace}'>Ver más</a>")
 
         time.sleep(CHECK_INTERVAL)
-
 
 if __name__ == '__main__':
     main()
