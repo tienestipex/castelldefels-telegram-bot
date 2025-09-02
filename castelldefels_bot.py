@@ -175,51 +175,52 @@ def main():
         if nueva_castelldefels and nueva_castelldefels != ultima_noticia_castelldefels:
             ultima_noticia_castelldefels = nueva_castelldefels
             titulo, enlace = nueva_castelldefels
-            enviar_telegram(f"🆕 Nova notícia de Castelldefels (Ajuntament):\n\n<b>{titulo}</b>\n\n🔗 {enlace}")
+            enviar_telegram(f"🆕 Nova notícia de Castelldefels (Ajuntament):\n\n<b>{titulo}</b>\n\n👉 <a href='{enlace}'>Ver más</a>")
 
         # Gavà – Notas de Premsa
         nueva_gava_premsa = obtener_ultima_noticia_gava_premsa()
         if nueva_gava_premsa and nueva_gava_premsa != ultima_noticia_gava_premsa:
             ultima_noticia_gava_premsa = nueva_gava_premsa
             titulo, enlace = nueva_gava_premsa
-            enviar_telegram(f"🆕 Nova notícia de Gavà (Notes de Premsa):\n\n<b>{titulo}</b>\n\n🔗 {enlace}")
+            enviar_telegram(f"🆕 Nova notícia de Gavà (Notes de Premsa):\n\n<b>{titulo}</b>\n\n👉 <a href='{enlace}'>Ver más</a>")
 
         # Gavà – Actualitat
         nueva_gava_actualitat = obtener_ultima_noticia_gava_actualitat()
         if nueva_gava_actualitat and nueva_gava_actualitat != ultima_noticia_gava_actualitat:
             ultima_noticia_gava_actualitat = nueva_gava_actualitat
             titulo, enlace = nueva_gava_actualitat
-            enviar_telegram(f"🆕 Nova notícia de Gavà (Actualitat):\n\n<b>{titulo}</b>\n\n🔗 {enlace}")
+            enviar_telegram(f"🆕 Nova notícia de Gavà (Actualitat):\n\n<b>{titulo}</b>\n\n👉 <a href='{enlace}'>Ver más</a>")
 
         # La Premsa – Gavà
         nueva_premsa_gava = obtener_ultima_noticia_premsa_gava()
         if nueva_premsa_gava and nueva_premsa_gava != ultima_noticia_premsa_gava:
             ultima_noticia_premsa_gava = nueva_premsa_gava
             titulo, enlace = nueva_premsa_gava
-            enviar_telegram(f"🆕 Nova notícia de La Premsa del Baix (Gavà):\n\n<b>{titulo}</b>\n\n🔗 {enlace}")
+            enviar_telegram(f"🆕 Nova notícia de La Premsa del Baix (Gavà):\n\n<b>{titulo}</b>\n\n👉 <a href='{enlace}'>Ver más</a>")
 
         # La Premsa – Castelldefels
         nueva_premsa_castelldefels = obtener_ultima_noticia_premsa_castelldefels()
         if nueva_premsa_castelldefels and nueva_premsa_castelldefels != ultima_noticia_premsa_castelldefels:
             ultima_noticia_premsa_castelldefels = nueva_premsa_castelldefels
             titulo, enlace = nueva_premsa_castelldefels
-            enviar_telegram(f"🆕 Nova notícia de La Premsa del Baix (Castelldefels):\n\n<b>{titulo}</b>\n\n🔗 {enlace}")
+            enviar_telegram(f"🆕 Nova notícia de La Premsa del Baix (Castelldefels):\n\n<b>{titulo}</b>\n\n👉 <a href='{enlace}'>Ver más</a>")
 
         # El Periódico – Gavà
         nueva_periodico_gava = obtener_ultima_noticia_periodico_gava()
         if nueva_periodico_gava and nueva_periodico_gava != ultima_noticia_periodico_gava:
             ultima_noticia_periodico_gava = nueva_periodico_gava
             titulo, enlace = nueva_periodico_gava
-            enviar_telegram(f"🆕 Nova notícia de El Periódico (Gavà):\n\n<b>{titulo}</b>\n\n🔗 {enlace}")
+            enviar_telegram(f"🆕 Nova notícia de El Periódico (Gavà):\n\n<b>{titulo}</b>\n\n👉 <a href='{enlace}'>Ver más</a>")
 
         # El Periódico – Castelldefels
         nueva_periodico_castelldefels = obtener_ultima_noticia_periodico_castelldefels()
         if nueva_periodico_castelldefels and nueva_periodico_castelldefels != ultima_noticia_periodico_castelldefels:
             ultima_noticia_periodico_castelldefels = nueva_periodico_castelldefels
             titulo, enlace = nueva_periodico_castelldefels
-            enviar_telegram(f"🆕 Nova notícia de El Periódico (Castelldefels):\n\n<b>{titulo}</b>\n\n🔗 {enlace}")
+            enviar_telegram(f"🆕 Nova notícia de El Periódico (Castelldefels):\n\n<b>{titulo}</b>\n\n👉 <a href='{enlace}'>Ver más</a>")
 
         time.sleep(CHECK_INTERVAL)
+
 
 if __name__ == '__main__':
     main()
