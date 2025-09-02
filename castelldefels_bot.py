@@ -201,7 +201,7 @@ def main():
         if nueva_premsa_gava and nueva_premsa_gava != ultima_noticia_premsa_gava:
             ultima_noticia_premsa_gava = nueva_premsa_gava
             titulo, enlace = nueva_premsa_gava
-            enviar_telegram(f"🟢 Nova notícia de La Premsa del Baix (Gavà):\n\n<b>{titulo}</b>\n\n🔗 <a href='{enlace}'>Ver más</a>")
+            enviar_telegram(f"🟢 Nueva noticia de La Premsa del Baix (Gavà):\n\n<b>{titulo}</b>\n\n🔗 <a href='{enlace}'>Ver más</a>")
 
         # La Premsa – Castelldefels
         nueva_premsa_castelldefels = obtener_ultima_noticia_premsa_castelldefels()
