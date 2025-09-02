@@ -10,7 +10,7 @@ CHECK_INTERVAL = 5  # segundos
 # URLs
 URL_CASTELLDEFELS = 'https://www.castelldefels.org/ca/actualitat/elcastell/noticies'
 URL_GAVA_PREMSA = 'https://www.gavaciutat.cat/es/actualitat/notes-de-premsa/'
-URL_GAVA_ACTUALITAT = 'https://www.gavaciutat.cat/'
+URL_GAVA_ACTUALITAT = 'https://www.gavaciutat.cat/es/portada'
 
 # Variables para almacenar las últimas noticias detectadas
 ultima_noticia_castelldefels = None
