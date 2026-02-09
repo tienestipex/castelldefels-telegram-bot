@@ -8,7 +8,7 @@ CHAT_ID = '914909'
 CHECK_INTERVAL = 30  # segundos
 
 # URLs
-URL_CASTELLDEFELS = 'https://www.castelldefels.org/ca/actualitat/elcastell/noticies'
+URL_CASTELLDEFELS = 'https://www.castelldefels.org/ca/actualitat/elcastell/noticias'
 URL_GAVA_PREMSA = 'https://www.gavaciutat.cat/es/actualitat/notes-de-premsa/'
 URL_GAVA_ACTUALITAT = 'https://www.gavaciutat.cat/'
 
