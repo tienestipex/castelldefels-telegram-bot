@@ -32,7 +32,7 @@ def obtener_ultima_noticia_castelldefels():
         response = requests.get(URL_CASTELLDEFELS, timeout=10)
         response.raise_for_status()
         soup = BeautifulSoup(response.text, 'html.parser')
-        noticia = soup.find('img', class_='newsItem__image')
+        noticia = soup.find('h2', class_='newsItem__title h4 my-0')
         if noticia and noticia.a:
             titulo = noticia.get_text(strip=True)
             enlace = noticia.a['href']
