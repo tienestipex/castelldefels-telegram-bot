@@ -27,20 +27,31 @@ ultima_noticia_periodico_gava = None
 ultima_noticia_periodico_castelldefels = None
 
 # --- Castelldefels ---
-
 def obtener_ultima_noticia_castelldefels():
     try:
-        response = requests.get(URL_CASTELLDEFELS, timeout=10)
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120 Safari/537.36"
+        }
+
+        response = requests.get(URL_CASTELLDEFELS, headers=headers, timeout=10)
         response.raise_for_status()
+
         soup = BeautifulSoup(response.text, 'html.parser')
-        noticia = soup.find('h2', class_='newsItem__title h4 my-0')
-        if noticia and noticia.a:
+
+        noticia = soup.select_one("a.newsItem__link")
+
+        if noticia:
             titulo = noticia.get_text(strip=True)
-            enlace = noticia.a['href']
+            enlace = noticia['href']
+
             if not enlace.startswith("http"):
                 enlace = "https://www.castelldefels.org" + enlace
+
             return titulo, enlace
+
+        print("⚠️ HTML recibido pero no se encontró noticia")
         return None
+
     except Exception as e:
         print(f"Error al obtener noticia de Castelldefels: {e}")
         return None
