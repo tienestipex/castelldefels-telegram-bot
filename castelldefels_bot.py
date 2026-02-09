@@ -33,21 +33,14 @@ def obtener_ultima_noticia_castelldefels():
         response = requests.get(URL_CASTELLDEFELS, timeout=10)
         response.raise_for_status()
         soup = BeautifulSoup(response.text, 'html.parser')
-
-        noticia = soup.find('a', class_='newsItem__link link-wrappery')
-
-        if noticia:
-            enlace = noticia['href']
+        noticia = soup.find('h2', class_='newsItem__title h4 my-0')
+        if noticia and noticia.a:
             titulo = noticia.get_text(strip=True)
-
+            enlace = noticia.a['href']
             if not enlace.startswith("http"):
                 enlace = "https://www.castelldefels.org" + enlace
-
             return titulo, enlace
-
-        print("⚠️ No se encontró el enlace de la noticia")
         return None
-
     except Exception as e:
         print(f"Error al obtener noticia de Castelldefels: {e}")
         return None
