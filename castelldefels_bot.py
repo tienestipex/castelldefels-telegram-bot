@@ -3,7 +3,7 @@ import requests
 from bs4 import BeautifulSoup
 
 # Constantes de configuración
-TELEGRAM_TOKEN = '7971079701:AAF-B-tD1nYQs5IuhuoBJTUKwBBBY7mXvgU'
+TELEGRAM_TOKEN = '7971079701:AAGRLO6sSPO0uVFU_gz2_xlMG8S1jzi9fgk'
 CHAT_ID = '914909'
 CHECK_INTERVAL = 30  # segundos
 
